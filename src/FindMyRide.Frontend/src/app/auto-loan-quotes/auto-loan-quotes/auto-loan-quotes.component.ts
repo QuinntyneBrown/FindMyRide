@@ -31,7 +31,7 @@ export class AutoLoanQuotesComponent implements OnDestroy {
   ) { }
 
   public handleEditClick(autoLoanQuote: AutoLoanQuote): void {
-    this.router.navigateByUrl(`autoLoanQuotes/edit/${autoLoanQuote.id}`);
+    this.router.navigateByUrl(`autoLoanQuotes/edit/${autoLoanQuote.autoLoanQuoteId}`);
   }
 
   public handleCreateClick(): void {

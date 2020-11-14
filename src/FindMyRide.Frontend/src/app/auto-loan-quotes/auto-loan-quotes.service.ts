@@ -22,18 +22,18 @@ export class AutoLoanQuotesService {
       );
   }
 
-  public getById(options: { id: number }): Observable<AutoLoanQuote> {
-    return this._client.get<{ autoLoanQuote: AutoLoanQuote }>(`${this._baseUrl}api/autoLoanQuotes/${options.id}`)
+  public getById(options: { autoLoanQuoteId: number }): Observable<AutoLoanQuote> {
+    return this._client.get<{ autoLoanQuote: AutoLoanQuote }>(`${this._baseUrl}api/autoLoanQuotes/${options.autoLoanQuoteId}`)
       .pipe(
         map(x => x.autoLoanQuote)
       );
   }
 
   public remove(options: { autoLoanQuote: AutoLoanQuote }): Observable<void> {
-    return this._client.delete<void>(`${this._baseUrl}api/autoLoanQuotes/${options.autoLoanQuote.id}`);
+    return this._client.delete<void>(`${this._baseUrl}api/autoLoanQuotes/${options.autoLoanQuote.autoLoanQuoteId}`);
   }
 
-  public save(options: { autoLoanQuote: AutoLoanQuote }): Observable<{ id: number }> {
-    return this._client.post<{ id: number }>(`${this._baseUrl}api/autoLoanQuotes`, { autoLoanQuote: options.autoLoanQuote });
+  public save(options: { autoLoanQuote: AutoLoanQuote }): Observable<{ autoLoanQuoteId: number }> {
+    return this._client.post<{ autoLoanQuoteId: number }>(`${this._baseUrl}api/autoLoanQuotes`, { autoLoanQuote: options.autoLoanQuote });
   }  
 }

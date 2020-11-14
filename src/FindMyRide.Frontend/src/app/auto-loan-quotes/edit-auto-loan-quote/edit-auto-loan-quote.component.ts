@@ -27,10 +27,10 @@ export class EditAutoLoanQuoteComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.autoLoanQuote.id = this.activatedRoute.snapshot.params.id;
+    this.autoLoanQuote.autoLoanQuoteId = this.activatedRoute.snapshot.params.id;
 
-    if(this.autoLoanQuote.id) {
-      this.autoLoanQuotesService.getById({ id: this.activatedRoute.snapshot.params.id }).pipe(
+    if(this.autoLoanQuote.autoLoanQuoteId) {
+      this.autoLoanQuotesService.getById({ autoLoanQuoteId: this.activatedRoute.snapshot.params.id }).pipe(
         map(x => {
           this.form.patchValue({
             //title: x.name,
